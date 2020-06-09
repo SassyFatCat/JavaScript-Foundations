@@ -117,7 +117,7 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
-/* HERE IS MY FIRST SOLUTION
+/*HERE IS MY FIRST SOLUTION*/
 // let variableInterestRate = (P, I, Y) => {
 //     let varMonIntR = I - .02;
 //     for (let i=0; i<10; i++) {
@@ -131,7 +131,7 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 //         console.log(`${name}, with an interest rate of ${varMonIntR}, your monthly rate is ${newMonthlyRate}`);
 //         varMonIntR += .005;
 //     }
-// }*/
+// }
 
 /* I AM MORE PROUD OF MY SECOND SOLUTION*/
 let count = 0;
@@ -159,6 +159,15 @@ let variableInterestRate = (P, I, Y) => {
 
 
 /* 🏡 Build a calculator function that accepts `monthly payment` and `interest rate` and returns the maximum loan that a person could afford */
+let maxLoan = (monthlyPayment, I, Y) => {
+    let intRate = I/12;
+    let newPeriods = Y*12;
+    let m1 = Math.pow(intRate + 1, newPeriods);
+    let newNumerator = intRate*m1;
+    let newDenominator = m1 - 1;
+    let P = (newNumerator*Math.pow(newDenominator, -1)) / monthlyPayment
+    return Math.pow(P, -1);
+}
 
 
 /* 🏡 Explore using `window.prompt()` to allow a user to input parameters in the browser */
