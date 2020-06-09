@@ -118,27 +118,21 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 */
 
 /* HERE IS MY FIRST SOLUTION
-let variableInterestRate = (P, I, Y) => {
-    let newMonthlyIntR = I/12;
-    let newPeriods = Y*12;
-    let m1 = Math.pow(newMonthlyIntR + 1, newPeriods);
-    let newNumerator = newMonthlyIntR*m1;
-    let newDenominator = m1 - 1;
-    let newMonthlyRate = P*(newNumerator/newDenominator);
-    
-    let varMonIntR = I - .02;
-    for (let i=0; i<10; i++) {
-        newMonthlyIntR = varMonIntR/12;
-        newPeriods = Y*12;
-        m1 = Math.pow(newMonthlyIntR + 1, newPeriods);
-        newNumerator = newMonthlyIntR*m1;
-        newDenominator = m1 - 1;
-        newMonthlyRate = P*(newNumerator/newDenominator);
+// let variableInterestRate = (P, I, Y) => {
+//     let varMonIntR = I - .02;
+//     for (let i=0; i<10; i++) {
+//         newMonthlyIntR = varMonIntR/12;
+//         newPeriods = Y*12;
+//         m1 = Math.pow(newMonthlyIntR + 1, newPeriods);
+//         newNumerator = newMonthlyIntR*m1;
+//         newDenominator = m1 - 1;
+//         newMonthlyRate = P*(newNumerator/newDenominator);
 
-        console.log(`${name}, with an interest rate of ${varMonIntR}, your monthly rate is ${newMonthlyRate}`);
-        varMonIntR += .005;
-    }
-}*/
+//         console.log(`${name}, with an interest rate of ${varMonIntR}, your monthly rate is ${newMonthlyRate}`);
+//         varMonIntR += .005;
+//     }
+// }*/
+
 /* I AM MORE PROUD OF MY SECOND SOLUTION*/
 let count = 0;
 let variableInterestRate = (P, I, Y) => {
