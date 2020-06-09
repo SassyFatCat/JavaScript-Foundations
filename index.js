@@ -117,6 +117,7 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+/* HERE IS MY FIRST SOLUTION
 let variableInterestRate = (P, I, Y) => {
     let newMonthlyIntR = I/12;
     let newPeriods = Y*12;
@@ -137,9 +138,24 @@ let variableInterestRate = (P, I, Y) => {
         console.log(`${name}, with an interest rate of ${varMonIntR}, your monthly rate is ${newMonthlyRate}`);
         varMonIntR += .005;
     }
+}*/
+/* I AM MORE PROUD OF MY SECOND SOLUTION*/
+let count = 0;
+let variableInterestRate = (P, I, Y) => {
+    let newMonthlyIntR = (I+.02)/12;
+    let newPeriods = Y*12;
+    let m1 = Math.pow(newMonthlyIntR + 1, newPeriods);
+    let newNumerator = newMonthlyIntR*m1;
+    let newDenominator = m1 - 1;
+    let newMonthlyRate = P*(newNumerator/newDenominator);
+    count++;
+    if (count > 10) {
+        return null;
+      }
+    variableInterestRate(P, I-.005, Y);
+    console.log(`${name}, with an interest rate of ${(I+.02).toFixed(3)} your monthly rate is ${newMonthlyRate.toFixed(2)}`)
 }
-
-
+/* END OF SOLUTION*/
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
