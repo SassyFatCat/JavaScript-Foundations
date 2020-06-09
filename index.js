@@ -64,7 +64,15 @@ let mortgageCalculator = () => {
 For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
-
+let newMortgageCalculator = (P, I, Y) => {
+    let newMonthlyIntR = I/12;
+    let newPeriods = Y*12;
+    let m1 = Math.pow(newMonthlyIntR + 1, newPeriods);
+    let newNumerator = newMonthlyIntR*m1;
+    let newDenominator = m1 - 1;
+    let newMonthlyRate = P*(newNumerator/newDenominator);
+    return newMonthlyRate;
+}
 
 
 
@@ -77,7 +85,20 @@ Then, add control flow within your function such that IF creditScore is above 74
 Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 */
 
+newMortgageCalculator = (P, I, Y, creditScore) => {
+    let newMonthlyIntR = I/12;
 
+    creditScore > 740 ? newMonthlyIntR *= 0.95
+                        : creditScore < 660 ? newMonthlyIntR *= 1.05
+                        : newMonthlyIntR = newMonthlyIntR;
+
+    let newPeriods = Y*12;
+    let m1 = Math.pow(newMonthlyIntR + 1, newPeriods);
+    let newNumerator = newMonthlyIntR*m1;
+    let newDenominator = m1 - 1;
+    let newMonthlyRate = P*(newNumerator/newDenominator);
+    return newMonthlyRate;
+}
 
 
 // 🏡 Task 6: Loops
